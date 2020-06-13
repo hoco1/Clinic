@@ -1,0 +1,20 @@
+{% extends 'operator/base.html' %}
+
+{% block page_content %}
+<h1>Singel Personnel Page</h1>
+
+<p>Personnel Name : {{personnel.personnelname}}</p>
+<hr>
+<p>Madrak  : {{personnel.madraktype}}</p>
+<hr>
+<p>Moblie : {{personnel.mobile}}</p>
+<hr>
+<p>Date Estekhdam : {{personnel.dateestekhdam}}</p>
+<hr>
+<p>Role :
+    {{'Doctor' if personnel.role == 1 }}
+    {{'Nurse' if personnel.role == 2 }}
+    {{'Operator' if personnel.role == 3 }}
+</p>
+
+{% endblock %}
