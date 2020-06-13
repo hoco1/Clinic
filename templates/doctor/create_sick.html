@@ -1,0 +1,43 @@
+{%extends 'doctor/base.html' %}
+{%block title%} Sick || Doctor {% endblock %}
+{%block page_content%}
+
+{% with messages = get_flashed_messages(True) %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message[0]}}" role="alert">
+    {{ message[1] }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<h1>BimarName :{{sick.bimarname}}</h1>
+<p>Data Sabt :{{sick.datesabt}}</p>
+<p>
+Type Bimeh : 
+  {{'BimehSalamat' if sick.bimetypeid == 1 }}
+  {{'BimehTamin' if sick.bimetypeid == 2 }}
+  {{'BimehComplete' if sick.bimetypeid == 3 }}
+
+</p>
+<br>
+<form action="{{url_for('doctor.create_sick',sick_id=sick.bimarid)}}" , method="POST", enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        <label for="inputAddress2">Bimari Type</label>
+        {{form.bimaritype(type="text" ,class="form-control", id="inputAddress2" ,placeholder="bimarnam")}}
+      </div>
+
+    <div class="form-group">
+      <label for="inputAddress2">Notes</label>
+      {{form.notes(type="text" ,class="form-control", id="inputAddress2" ,placeholder="bimehcod")}}
+    </div>
+
+    File : {{upload.file}} <br>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{%endblock%}
