@@ -12,7 +12,7 @@ Create Sick data,
 Create Personnel data,
 Upload Discription,
 ...
-#Requiremt
+# Requiremt :
 alembic==1.4.2
 click==7.1.2
 Flask==1.1.2
