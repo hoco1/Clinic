@@ -1,0 +1,38 @@
+{%extends 'nurse/base.html' %}
+{%block title%} Sick || Nurse {% endblock %}
+{%block page_content%}
+
+{% with messages = get_flashed_messages(True) %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message[0]}}" role="alert">
+    {{ message[1] }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<img src="{{sick.noskhe}}" alt="Noskhe" style="width: 20%;">
+<h1>BimarName :{{sick.bimarname}}</h1>
+<p>Data Sabt :{{sick.datesabt}}</p>
+<p>
+Type Bimeh : 
+  {{'BimehSalamat' if sick.bimetypeid == 1 }}
+  {{'BimehTamin' if sick.bimetypeid == 2 }}
+  {{'BimehComplete' if sick.bimetypeid == 3 }}
+
+</p>
+<p>{{sick.bimaritype}}</p>
+<p>{{sick.notes}}</p>
+<br>
+<form action="{{url_for('nurse.ressick',sick_id=sick.bimarid)}}" , method="POST", enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        <label for="inputAddress2">Res Noskhe</label>
+        {{form.result(class="form-control")}}
+      </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{%endblock%}
