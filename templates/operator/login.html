@@ -1,7 +1,7 @@
-{%extends 'doctor/base.html' %}
-{%block title%} Login || Dotor {% endblock %}
+{%extends 'operator/base.html' %}
+{%block title%} Login || Operator {% endblock %}
 {%block page_content%}
-<form action="{{url_for('doctor.login')}}" method="POST">
+<form action="{{url_for('operator.login')}}" method="POST">
     <div class="form-group">
         {{ form.hidden_tag() }}
       <label for="exampleInputEmail1">Personnel Name</label>
