@@ -1,5 +1,5 @@
-{% extends 'doctor/base.html' %}
-{% block title %} Doctor || index {% endblock %}
+{% extends 'nurse/base.html' %}
+{% block title %} Nurse || index {% endblock %}
 
 {% block page_content %}
 
@@ -17,8 +17,8 @@
 
         
 
-      <a href="{{url_for('doctor.sick',sick_id = sick.bimarid)}}" class="btn btn-primary">All Data</a>
-      <a href="{{url_for('doctor.create_sick',sick_id = sick.bimarid)}}" class="btn btn-primary">Complete Data</a>
+      <a href="{{url_for('nurse.sick',sick_id = sick.bimarid)}}" class="btn btn-primary">All Data</a>
+      <a href="{{url_for('nurse.ressick',sick_id = sick.bimarid)}}" class="btn btn-primary">Complete Data</a>
     </div>
   </div>
 {% endfor %}
