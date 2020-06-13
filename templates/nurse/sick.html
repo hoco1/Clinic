@@ -1,0 +1,34 @@
+{% extends 'nurse/base.html' %}
+
+{% block page_content %}
+<h1>Singel Sick Page</h1>
+<img src="{{sick.noskhe}}" alt="Noskhe" style="width: 20%;">
+<p>Bimar Name : {{sick.bimarname}}</p>
+<hr>
+<p>Data Sabt  : {{sick.datesabt}}</p>
+<hr>
+<p>Moblie : {{sick.mobile}}</p>
+<hr>
+<p>BimariType : {{sick.bimaritype}}</p>
+<hr>
+<p>
+    BimeType :
+    {{'BimehSalamat' if sick.bimetypeid == 1 }}
+    {{'BimehTamin' if sick.bimetypeid == 2 }}
+    {{'BimehComplete' if sick.bimetypeid == 3 }}
+</p>
+<hr>
+<p>Note : {{sick.notes}}</p>
+<hr>
+<p>HaghalZahmeh : 
+    {{'پرداخت نقدی' if sick.haghalzahmehid == 1 else 'پرداخت غیر نقدی'}}
+</p>
+<hr>
+<p>
+    ResNoskhe : {{'Reject' if sick.resnoskheid == 2 else 'Accept'}}
+</p>
+<hr>
+
+{% endblock %}
+
+
