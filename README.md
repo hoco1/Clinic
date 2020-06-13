@@ -2,7 +2,7 @@
 Web application - Flask
 Clinic built with Python 3.7 and Flask==1.1.2.
 # Database 
-Mariadb
+Mariadb,
 SQLAlchemy ORM
 # Features :
 Login Dotors,
