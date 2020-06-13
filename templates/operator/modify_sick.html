@@ -1,0 +1,62 @@
+{%extends 'operator/base.html' %}
+{%block title%} create Sick || Operator {% endblock %}
+{%block page_content%}
+
+<form action="{{url_for('operator.modify_sick',sick_id=sick.bimarid)}}" , method="POST">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        <label for="inputEmail4">Bimar Name</label>
+        {{form.bimarname(type="text", class="form-control" ,id="inputEmail4", placeholder="MohammadReza Norouzi")}}
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress2">Bimeh Code</label>
+        {{form.bimehcode(type="text" ,class="form-control", id="inputAddress2" ,placeholder="PHD")}}
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress2">Tel PH</label>
+        {{form.telph(type="text" ,class="form-control", id="inputAddress2" ,placeholder="02144585")}}
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress2">Mobile</label>
+        {{form.mobile(type="text" ,class="form-control", id="inputAddress2" ,placeholder="091265465")}}
+    </div>
+
+
+    <div class="form-group">
+        <label for="inputAddress2">Melli Code</label>
+        {{form.mellicode(type="text" ,class="form-control", id="inputAddress2" ,placeholder="20536132")}}
+    </div>
+    
+    <div class="form-group">
+        <label for="inputAddress2">Address</label>
+        {{form.address(type="text" ,class="form-control", id="inputAddress2" ,placeholder="Iran,Tehran")}}
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress2">Notes</label>
+        {{form.notes(class="form-control")}}
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress2">Bime Type</label>
+        {{form.bimetype(type='int',class="form-control")}}
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress2">Haghal Zahmeh</label>
+        {{form.haghalzahmeh(class="form-control")}}
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress2">Personnels</label>
+        {{form.personnels(class="form-control")}}
+    </div>
+ 
+    <button type="submit" class="btn btn-primary">Create Sick</button>
+  </form>
+
+{%endblock%}
