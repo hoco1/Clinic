@@ -1,0 +1,20 @@
+{%extends 'doctor/base.html' %}
+{%block title%} upload file || admin {% endblock %}
+{%block page_content%}
+{% with messages = get_flashed_messages(True) %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message[0]}}" role="alert">
+    {{ message[1] }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<form action="{{url_for('doctor.upload_file')}}" , method="POST" , enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+      File : {{form.file}} <br>
+
+    <button type="submit" class="btn btn-primary">upload in</button>
+  </form>
+
+{%endblock%}
