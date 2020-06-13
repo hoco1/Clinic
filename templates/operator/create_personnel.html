@@ -1,0 +1,65 @@
+{%extends 'operator/base.html' %}
+{%block title%} create Personnel || Operator {% endblock %}
+{%block page_content%}
+
+<form action="{{url_for('operator.create_personnel')}}" , method="POST">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        <label for="inputEmail4">Personnel Name</label>
+        {{form.personnelname(type="text", class="form-control" ,id="inputEmail4", placeholder="MohammadReza Norouzi")}}
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress2">Madrak Type</label>
+        {{form.madraktype(type="text" ,class="form-control", id="inputAddress2" ,placeholder="PHD")}}
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress2">Phone</label>
+        {{form.phone(type="text" ,class="form-control", id="inputAddress2" ,placeholder="02144585")}}
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress2">Mobile</label>
+        {{form.mobile(type="text" ,class="form-control", id="inputAddress2" ,placeholder="091265465")}}
+    </div>
+
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            {{form.password(type="password" ,class="form-control" ,id="inputPassword4", placeholder="Password")}}
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Confirm Password</label>
+            {{form.confirm_pass(type="password" ,class="form-control" , placeholder="Confirm Password")}}
+        </div>
+
+    </div> 
+
+    <div class="form-group">
+        <label for="inputAddress2">Melli Code</label>
+        {{form.mellicode(type="text" ,class="form-control", id="inputAddress2" ,placeholder="20536132")}}
+    </div>
+    
+    <div class="form-group">
+        <label for="inputAddress2">Address</label>
+        {{form.address(type="text" ,class="form-control", id="inputAddress2" ,placeholder="Iran,Tehran")}}
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress2">Role</label>
+        {{form.role(class="form-control")}}
+    </div>
+
+    <div class="form-group">
+        <label for="inputAddress2">Sicks</label>
+        {{form.sicks(class="form-control")}}
+    </div>
+ 
+    <button type="submit" class="btn btn-primary">Create Personnel</button>
+  </form>
+
+{%endblock%}
