@@ -1,0 +1,49 @@
+{%extends 'operator/base.html'%}
+{%block page_content %} 
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Bimar Name</th>
+        <th scope="col">Date Sabt</th>
+        <th scope="col">
+            Telph,
+            Mobile, 
+            Melli Code, 
+            Address</th>
+        <th scope="col">Notes</th>
+        <th scope="col">Bimari Type</th>
+        <th scope="col">Haghalzahmeh</th>
+        <th scope="col">Res Noskhe</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for sick in sicks %}
+      <tr>
+        <th scope="row">{{sick.bimarid}}</th>
+        <td>{{sick.bimarname}}</td>
+        <td>{{sick.datesabt}}</td>
+        <td>
+            {{sick.telph}} <br>
+            {{sick.mobile}} <br>
+            {{sick.mellicode}} <br>
+            {{sick.address}} <br>
+
+        </td>
+        <td>
+            {{sick.notes}}
+        </td>
+        <td> {{'دکتر ندیده' if sick.bimaritype == 'None' else sick.bimaritype }}</td>
+        <td>{{'پرداخت نقدی' if sick.haghalzahmehid == 1 else 'پرداخت غیر نقدی'}}</td>
+        <td>{{sick.resnoskhe}}</td>
+        <td>
+            <a href="{{url_for('operator.delete_sick',sick_id = sick.bimarid)}}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+            <a href="{{url_for('operator.modify_sick',sick_id = sick.bimarid)}}"><button type="button" class="btn btn-outline-warning">Modify</button></a> 
+        </td>
+      </tr>
+        {%endfor%}
+    </tbody>
+  </table>
+{% endblock %}

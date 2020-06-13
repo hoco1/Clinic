@@ -1,0 +1,32 @@
+{%extends 'operator/base.html'%}
+{%block page_content %} 
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Personnel Name</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Role</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for personnel in personnels %}
+      <tr>
+        <th scope="row">{{personnel.personnelid}}</th>
+        <td><a href="{{url_for('operator.personnel',personnel_id = personnel.personnelid)}}">{{personnel.personnelname}}</a></td>
+        <td>{{ personnel.mobile}}</td>
+        <td>
+            {{'Doctor' if personnel.role == 1 }}
+            {{'Nurse' if personnel.role == 2 }}
+            {{'Operator' if personnel.role == 3 }}
+        </td>
+        <td>
+            <a href="{{url_for('operator.delete_personnel',personnel_id = personnel.personnelid)}}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+        </td>
+      </tr>
+        {%endfor%}
+    </tbody>
+  </table>
+{% endblock %}
